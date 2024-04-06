@@ -1,4 +1,4 @@
-const BASE_URL = 'api'; // it takes the current host
+const BASE_URL = 'https://turnover-w62j.onrender.com/api';
 
 async function register() {
     const name = document.getElementById("name").value.trim();
