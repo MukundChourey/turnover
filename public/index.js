@@ -1,4 +1,4 @@
-const BASE_URL = ''; // it takes the current host
+const BASE_URL = 'api'; // it takes the current host
 
 async function register() {
     const name = document.getElementById("name").value.trim();
