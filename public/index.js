@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = ''; // it takes the current host
 
 async function register() {
     const name = document.getElementById("name").value.trim();
