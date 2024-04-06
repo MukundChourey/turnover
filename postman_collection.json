@@ -1,0 +1,744 @@
+{
+	"info": {
+		"_postman_id": "40f8aee0-27db-46be-9848-a0aaeca1f2e0",
+		"name": "ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28873060"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "verify",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"mukundchourey@gmail.com\",\n    \"code\": 75882882\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/user.verify",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"user.verify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-IN,en-US;q=0.9,en;q=0.8,hi;q=0.7"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test test\",\n    \"email\": \"mukund2thefuture@gmail.com\",\n    \"password\": \"12345\"\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/user.register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"user.register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-IN,en-US;q=0.9,en;q=0.8,hi;q=0.7"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"mukundchourey@gmail.com\",\n    \"password\": \"12345\"\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/user.login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"user.login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-IN,en-US;q=0.9,en;q=0.8,hi;q=0.7"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/category/category.fetch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"category",
+								"category.fetch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-IN,en-US;q=0.9,en;q=0.8,hi;q=0.7"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Curtains\"\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/category/category.create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"category",
+								"category.create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-IN,en-US;q=0.9,en;q=0.8,hi;q=0.7"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"categoryId\": \"clulpa2vd0000vou7izk98a9k\"\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/category/category.delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"category",
+								"category.delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create categories",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-IN,en-US;q=0.9,en;q=0.8,hi;q=0.7"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"names\": [\n        \"Shoes\",\n        \"Men's T-Shirts\",\n        \"Women's T-Shirts\",\n        \"Makeup\",\n        \"Jewelry\",\n        \"Furniture\",\n        \"Electronics\",\n        \"Home Decor\",\n        \"Watches\",\n        \"Handbags\",\n        \"Accessories\",\n        \"Kids Clothing\",\n        \"Sports Equipment\",\n        \"Books\",\n        \"Health & Beauty\",\n        \"Gadgets & Gizmos\",\n        \"Kitchen Appliances\",\n        \"Pet Supplies\",\n        \"Travel Accessories\",\n        \"Art & Crafts\",\n        \"Stationery\",\n        \"Fitness Equipment\",\n        \"Gaming\",\n        \"Office Supplies\",\n        \"Party Supplies\",\n        \"Musical Instruments\",\n        \"Bags & Luggage\",\n        \"Outdoor Gear\",\n        \"Cookware\",\n        \"Smart Home Devices\",\n        \"Vintage Clothing\",\n        \"Baby Gear\",\n        \"Plant & Garden\",\n        \"Candles & Scents\",\n        \"Tech Accessories\",\n        \"DIY & Tools\",\n        \"Food & Snacks\",\n        \"Board Games\",\n        \"Photography\",\n        \"Camping Gear\",\n        \"Home Improvement\",\n        \"Swimwear\",\n        \"Collectibles\",\n        \"Luxury Goods\",\n        \"Educational Toys\",\n        \"Cosplay Costumes\",\n        \"Subscription Boxes\",\n        \"Ethnic Clothing\",\n        \"Sustainable Products\",\n        \"Art Supplies\",\n        \"Automotive Parts\",\n        \"Smartphone Cases\",\n        \"Fitness Wearables\",\n        \"Cooking Utensils\",\n        \"Skincare\",\n        \"Virtual Reality Gear\",\n        \"Antiques\",\n        \"Home Textiles\",\n        \"Travel Bags\",\n        \"Tech Gadgets\",\n        \"Laptop Accessories\",\n        \"Vintage Decor\",\n        \"Audio Equipment\",\n        \"Sunglasses\",\n        \"Gourmet Food\",\n        \"Home Lighting\",\n        \"Party Decorations\",\n        \"Educational Books\",\n        \"Climbing Gear\",\n        \"Gardening Tools\",\n        \"Home Security Systems\",\n        \"Maternity Clothing\",\n        \"Dietary Supplements\",\n        \"Painting Supplies\",\n        \"Car Accessories\",\n        \"Smartwatches\",\n        \"Fitness Supplements\",\n        \"Skincare Tools\",\n        \"Virtual Reality Games\",\n        \"Vinyl Records\",\n        \"Classic Cars\",\n        \"Pet Grooming Supplies\",\n        \"Laptops\",\n        \"Desktop Computers\",\n        \"Computer Components\",\n        \"Monitors\",\n        \"Keyboards\",\n        \"Mice & Trackpads\",\n        \"Printers & Scanners\",\n        \"Networking Equipment\",\n        \"External Hard Drives\",\n        \"USB Flash Drives\",\n        \"Webcams\",\n        \"Graphics Cards\",\n        \"RAM (Memory)\",\n        \"Motherboards\",\n        \"CPU Processors\",\n        \"Solid State Drives (SSDs)\",\n        \"Power Supplies\",\n        \"Software & Operating Systems\"\n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/category/category.createMany",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"category",
+								"category.createMany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-IN,en-US;q=0.9,en;q=0.8,hi;q=0.7"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"categoryId\": \"clumtjnts002uvoafl0576ejd\"\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/category/category.addCategory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"category",
+								"category.addCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-IN,en-US;q=0.9,en;q=0.8,hi;q=0.7"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/category/category.getUserCategories?input=%7B%220%22%3A%7B%22json%22%3A%7B%22offset%22%3A6%7D%7D%7D",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"category",
+								"category.getUserCategories"
+							],
+							"query": [
+								{
+									"key": "input",
+									"value": "%7B%220%22%3A%7B%22json%22%3A%7B%22offset%22%3A6%7D%7D%7D"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove category user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-IN,en-US;q=0.9,en;q=0.8,hi;q=0.7"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"categoryId\": \"clulpcps40001vou7vfyqbh1r\"\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/category/category.removeUserCategory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"category",
+								"category.removeUserCategory"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNsdWxvYjc2dTAwMDB2b2pncHo2bWNvajIiLCJuYW1lIjoiTXVrdW5kIENob3VyZXkiLCJlbWFpbCI6Im11a3VuZGNob3VyZXlAZ21haWwuY29tIiwidmVyaWZpZWQiOnRydWUsInZlcmlmaWNhdGlvbl9jb2RlIjoiNzU4ODI4ODIiLCJpc0FkbWluIjp0cnVlLCJwYXNzd29yZCI6IjU5OTQ0NzFhYmIwMTExMmFmY2MxODE1OWY2Y2M3NGI0ZjUxMWI5OTgwNmRhNTliM2NhZjVhOWMxNzNjYWNmYzUiLCJjcmVhdGVkQXQiOiIyMDI0LTA0LTA0VDIwOjEyOjE5LjExMFoiLCJ1cGRhdGVkQXQiOiIyMDI0LTA0LTA0VDIwOjEzOjA2LjMxNVoiLCJpYXQiOjE3MTIzMzc4NDEsImV4cCI6MTcxMjQyNDI0MX0._31i8wXOp4trOV258_w8mZDvmME03CUx3qWORiykHkQ",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
