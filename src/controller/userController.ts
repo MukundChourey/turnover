@@ -12,6 +12,18 @@ class UserController {
             const email: string = body.email.trim();
             const password: string = body.password.trim();
 
+            const already_present_user = await prisma.user.findFirst({ where: { email } });
+            if (already_present_user) {
+                let already_present_user_error_message: string = 'EMAIL ALREADY PRESENT';
+                if (!already_present_user.verified) {
+                    already_present_user_error_message += ', NOT VERIFIED';
+                }
+                throw new TRPCError({
+                    code: 'BAD_REQUEST',
+                    message: already_present_user_error_message,
+                });
+            } 
+
             const verificationCode: number = sendVerificationMail(email);
             await prisma.user.create({
                 data: {

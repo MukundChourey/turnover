@@ -5,10 +5,7 @@ import { hash } from '../lib/helper';
 export const registerDto = z.object({
     name: z.string().min(3),
     email: z.string()
-        .email("not a valid email")
-        .refine(async (e) => {
-            return !(await prisma.user.findFirst({ where: { email: e } }))
-        }, "EMAIL ALREADY PRESENT"),
+        .email("not a valid email"),
     password: z.string().min(5, 'password must contain minimum 5 characters').transform((s) => {
         return hash(s);
     })

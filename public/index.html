@@ -46,7 +46,7 @@
     <script>
         const BASE_URL = 'api'; // it takes the current host
         const token = localStorage.getItem("token");
-
+        localStorage.removeItem("email");
         let offset = 0;
         let showLeft = false;
         let showRight = true;

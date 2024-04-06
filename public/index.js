@@ -19,24 +19,24 @@ async function register() {
             localStorage.setItem('email', email);
             document.location.href = 'verify.html';
         } else {
+            let message = '';
             try {
-                const messages = JSON.parse(data.error.message)
-                if (messages[0].message === `EMAIL ALREADY PRESENT`) {
-                    localStorage.setItem('email', email);
-                    alert("Email already present, verify for this email");
-                    document.location.href = 'verify.html';
-                    return;
-                }
-                alert(messages[0].message);
+                const messages = JSON.parse(data.error.message);
+                message = messages[0].message;
             } catch (error) {
-                if (data.error.message === `EMAIL ALREADY PRESENT`) {
-                    localStorage.setItem('email', email);
-                    alert("Email already present, verify for this email");
-                    document.location.href = 'verify.html';
-                    return;
-                }
-                alert(data.error.message);
+                message = data.error.message;
             }
+            if (message === `EMAIL ALREADY PRESENT, NOT VERIFIED`) {
+                localStorage.setItem('email', email);
+                alert("Email already present, verify for this email");
+                document.location.href = 'verify.html';
+                return;
+            } else if (message === `EMAIL ALREADY PRESENT`) {
+                alert("Email already present, please login");
+                document.location.href = 'login.html';
+                return;
+            }
+            throw new Error(message);
         }
     } catch (error) {
         alert(`${error}`);
@@ -67,22 +67,19 @@ async function verify() {
             localStorage.removeItem("email");
             document.location.href = 'login.html';
         } else {
+            let message = '';
             try {
-                const messages = JSON.parse(data.error.message)
-                if (messages[0].message === `EMAIL ALREADY PRESENT`) {
-                    alert("Email already present, verify for this email");
-                    document.location.href = 'verify.html';
-                    return;
-                }
-                alert(messages[0].message);
+                const messages = JSON.parse(data.error.message);
+                message = messages[0].message;
             } catch (error) {
-                if (data.error.message === `EMAIL ALREADY PRESENT`) {
-                    alert("Email already present, verify for this email");
-                    document.location.href = 'verify.html';
-                    return;
-                }
-                alert(data.error.message);
+                message = data.error.message;
             }
+            if (message === `EMAIL ALREADY VERIFIED`) {
+                alert("Email already verified, login for this email");
+                document.location.href = 'login.html';
+                return;
+            }
+            alert(data.error.message);
         }
     } catch (error) {
         alert(`${error}`);
@@ -109,34 +106,24 @@ async function login() {
             document.location.href = 'index.html';
             return;
         } else {
+            let message = '';
             try {
-                const messages = JSON.parse(data.error.message)
-                if (messages[0].message === `USER NOT VERIFIED`) {
-                    localStorage.setItem('email', email);
-                    alert("User not verified, please verify");
-                    document.location.href = 'verify.html';
-                    return;
-                }
-                if (messages[0].message === `USER NOT REGISTERED`) {
-                    alert("User not registered, please register");
-                    document.location.href = 'register.html';
-                    return;
-                }
-                alert(messages[0].message);
+                const messages = JSON.parse(data.error.message);
+                message = messages[0].message;
             } catch (error) {
-                if (data.error.message === `USER NOT VERIFIED`) {
-                    localStorage.setItem('email', email);
-                    alert("User not verified, please verify");
-                    document.location.href = 'verify.html';
-                    return;
-                } else if (data.error.message === `USER NOT REGISTERED`) {
-                    alert("User not registered, please register");
-                    document.location.href = 'register.html';
-                    return;
-                } else {
-                    alert(data.error.message);
-                    return;
-                }
+                message = data.error.message;
+            }
+            if (message === `USER NOT VERIFIED`) {
+                localStorage.setItem('email', email);
+                alert("User not verified, please verify");
+                document.location.href = 'verify.html';
+                return;
+            } else if (message === `USER NOT REGISTERED`) {
+                alert("User not registered, please register");
+                document.location.href = 'register.html';
+                return;
+            } else {
+                throw new Error(message);
             }
         }
     } catch (error) {
