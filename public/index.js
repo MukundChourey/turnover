@@ -19,15 +19,24 @@ async function register() {
             localStorage.setItem('email', email);
             document.location.href = 'verify.html';
         } else {
-            const messages = JSON.parse(data.error.message)
-            console.log(messages[0].message);
-            if (messages[0].message === `EMAIL ALREADY PRESENT`) {
-                localStorage.setItem('email', email);
-                alert("Email already present, verify for this email");
-                document.location.href = 'verify.html';
-                return;
+            try {
+                const messages = JSON.parse(data.error.message)
+                if (messages[0].message === `EMAIL ALREADY PRESENT`) {
+                    localStorage.setItem('email', email);
+                    alert("Email already present, verify for this email");
+                    document.location.href = 'verify.html';
+                    return;
+                }
+                alert(messages[0].message);
+            } catch (error) {
+                if (data.error.message === `EMAIL ALREADY PRESENT`) {
+                    localStorage.setItem('email', email);
+                    alert("Email already present, verify for this email");
+                    document.location.href = 'verify.html';
+                    return;
+                }
+                alert(data.error.message);
             }
-            throw new Error(messages[0].message);
         }
     } catch (error) {
         alert(`${error}`);
@@ -58,16 +67,22 @@ async function verify() {
             localStorage.removeItem("email");
             document.location.href = 'login.html';
         } else {
-            console.log(data.error.message);
-            const messages = JSON.parse(data.error.message)
-            console.log(messages[0].message);
-            if (messages[0].message === `EMAIL ALREADY PRESENT`) {
-                alert("Email already present, verify for this email");
-                document.location.href = 'verify.html';
-                return;
+            try {
+                const messages = JSON.parse(data.error.message)
+                if (messages[0].message === `EMAIL ALREADY PRESENT`) {
+                    alert("Email already present, verify for this email");
+                    document.location.href = 'verify.html';
+                    return;
+                }
+                alert(messages[0].message);
+            } catch (error) {
+                if (data.error.message === `EMAIL ALREADY PRESENT`) {
+                    alert("Email already present, verify for this email");
+                    document.location.href = 'verify.html';
+                    return;
+                }
+                alert(data.error.message);
             }
-            throw new Error(messages[0].message);
-
         }
     } catch (error) {
         alert(`${error}`);
@@ -94,19 +109,35 @@ async function login() {
             document.location.href = 'index.html';
             return;
         } else {
-            const messages = JSON.parse(data.error.message)
-            if (messages[0].message === `USER NOT VERIFIED`) {
-                localStorage.setItem('email', email);
-                alert("User not verified, please verify");
-                document.location.href = 'verify.html';
-                return;
+            try {
+                const messages = JSON.parse(data.error.message)
+                if (messages[0].message === `USER NOT VERIFIED`) {
+                    localStorage.setItem('email', email);
+                    alert("User not verified, please verify");
+                    document.location.href = 'verify.html';
+                    return;
+                }
+                if (messages[0].message === `USER NOT REGISTERED`) {
+                    alert("User not registered, please register");
+                    document.location.href = 'register.html';
+                    return;
+                }
+                alert(messages[0].message);
+            } catch (error) {
+                if (data.error.message === `USER NOT VERIFIED`) {
+                    localStorage.setItem('email', email);
+                    alert("User not verified, please verify");
+                    document.location.href = 'verify.html';
+                    return;
+                } else if (data.error.message === `USER NOT REGISTERED`) {
+                    alert("User not registered, please register");
+                    document.location.href = 'register.html';
+                    return;
+                } else {
+                    alert(data.error.message);
+                    return;
+                }
             }
-            if (messages[0].message === `USER NOT REGISTERED`) {
-                alert("User not registered, please register");
-                document.location.href = 'register.html';
-                return;
-            }
-            throw new Error(messages[0].message);
         }
     } catch (error) {
         alert(`${error}`);

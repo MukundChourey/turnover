@@ -169,7 +169,6 @@
             displayPagination();
         }
 
-
         async function addCategory(categoryId) {
             try {
                 const response = await fetch(`${BASE_URL}/category/category.addCategory`, {
@@ -184,8 +183,12 @@
                 if (response.ok) {
                     return;
                 } else {
-                    const messages = JSON.parse(data.error.message)
-                    throw new Error(messages[0].message);
+                    try {
+                        const messages = JSON.parse(data.error.message)
+                        throw new Error(messages[0].message);
+                    } catch (error) {
+                        throw new Error(data.error.message);
+                    }
 
                 }
             } catch (error) {
@@ -207,8 +210,12 @@
                 if (response.ok) {
                     return;
                 } else {
-                    const messages = JSON.parse(data.error.message)
-                    throw new Error(messages[0].message);
+                    try {
+                        const messages = JSON.parse(data.error.message)
+                        throw new Error(messages[0].message);
+                    } catch (error) {
+                        throw new Error(data.error.message);
+                    }
                 }
             } catch (error) {
                 alert(`${error}`);

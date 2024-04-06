@@ -13,7 +13,7 @@ class UserController {
             const password: string = body.password.trim();
 
             const verificationCode: number = sendVerificationMail(email);
-            prisma.user.create({
+            await prisma.user.create({
                 data: {
                     name,
                     email,
