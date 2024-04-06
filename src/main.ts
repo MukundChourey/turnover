@@ -12,7 +12,7 @@ app.get('/', (req: Request, res: Response, next: NextFunction) => {
 })
 
 app.use(
-    'api/user',
+    '/api/user',
     trpcExpress.createExpressMiddleware({
         router: appRouterUser,
         createContext: createContextForUser,
@@ -21,7 +21,7 @@ app.use(
 app.use(express.static('public'));
 
 app.use(
-    'api/category',
+    '/api/category',
     trpcExpress.createExpressMiddleware({
         router: appRouterCategory,
         createContext: createContextForCategory,
