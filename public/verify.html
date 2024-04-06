@@ -1,0 +1,66 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+    <script src="index.js"></script>
+    <script>
+        if (!localStorage.getItem("email")) {
+            alert("no user email in context, redirecting to register page");
+            document.location.href = 'register.html';
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        div {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="verificationForm">
+        <label for="verificationCode">Enter the verification code sent to your email: <b><span
+                    id="email"></span></b></label>
+        <input type="text" id="verificationCode" name="verificationCode" required>
+
+        <input type="submit" value="Submit" onclick="verify()">
+    </div>
+
+</body>
+<script>
+
+    document.getElementById("email").innerText = localStorage.getItem("email")
+
+</script>
+
+</html>

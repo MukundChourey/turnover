@@ -1,0 +1,225 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Checklist with Pagination</title>
+    <style>
+        #pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .page-link {
+            margin: 0 5px;
+            cursor: pointer;
+            color: blue;
+        }
+
+        .page-link.active {
+            font-weight: bold;
+            color: black;
+        }
+
+        input[type="submit"] {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+        }
+
+        input[type="submit"]:hover {
+            background-color: rgb(175, 1, 1);
+        }
+    </style>
+</head>
+
+<body>
+    <input type="submit" value="Logout" onclick="logout()">
+    <h1>Checklist from API</h1>
+    <div id="checklist"></div>
+    <div id="pagination"></div>
+    <script>
+        const BASE_URL = 'http://localhost:3000';
+        const token = localStorage.getItem("token");
+
+        let offset = 0;
+        let showLeft = false;
+        let showRight = true;
+        const headers = new Headers();
+        headers.append("Authorization", `Bearer ${token}`);
+
+        if (!token) {
+            alert("not logged in");
+            document.location.href = 'login.html';
+        } else {
+            fetchDataAndDisplay();
+        }
+
+        async function fetchData() {
+            try {
+                const obj = {
+                    "offset": offset
+
+                };
+
+                const encodedString = encodeURIComponent(JSON.stringify(obj));
+                const response = await fetch(`${BASE_URL}/category/category.getUserCategories?input=${encodedString}`, { headers });
+                const data = await response.json();
+                console.log(data);
+                if (data) {
+                    if (data.result) {
+                        if (data.result.data) {
+                            if (data.result.data.offset > 0) {
+                                offset = data.result.data.offset;
+                                if (offset > 6) {
+                                    showLeft = true;
+                                } else if (offset == 6) {
+                                    showLeft = false;
+                                }
+                            } else {
+                                showRight = false;
+                            }
+                            return data.result.data;
+                        }
+                    } else if (data.error) {
+                        if (data.error.message === "jwt expired") {
+                            alert("Session expired");
+                            document.location.href = 'login.html';
+                            return {
+                                categories: [],
+                                offset: 0
+                            }
+                        }
+                    }
+                }
+                throw new Error("Problems with fetching data:")
+            } catch (error) {
+                console.log(error);
+                alert(`${error}`);
+                return {
+                    categories: [],
+                    offset: 0
+                }
+            }
+        }
+
+        function displayData(data) {
+
+            const checklist = document.getElementById('checklist');
+            checklist.innerHTML = '';
+
+            data.forEach(item => {
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = item.id;
+                checkbox.checked = item.category_user_relation.length > 0;
+                checkbox.addEventListener('change', function () {
+                    if (this.checked) {
+                        addCategory(item.id);
+                    } else {
+                        deleteCategory(item.id);
+                    }
+                });
+                const label = document.createElement('label');
+                label.htmlFor = item.id;
+                label.textContent = item.name;
+                checklist.appendChild(checkbox);
+                checklist.appendChild(label);
+                checklist.appendChild(document.createElement('br'));
+            });
+        }
+
+        function displayPagination() {
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+
+            const prevButton = document.createElement('span');
+            prevButton.classList.add('page-link');
+            prevButton.textContent = '◄';
+            prevButton.addEventListener('click', () => {
+                if (offset > 0) {
+                    offset -= 12;
+                    console.log('updated', offset);
+                    fetchDataAndDisplay();
+                }
+            });
+            if (showLeft) {
+                pagination.appendChild(prevButton);
+            }
+
+            const nextButton = document.createElement('span');
+            nextButton.classList.add('page-link');
+            nextButton.textContent = '►';
+            nextButton.addEventListener('click', () => {
+                fetchDataAndDisplay();
+            });
+            if (showRight) {
+                pagination.appendChild(nextButton);
+            }
+        }
+
+        async function fetchDataAndDisplay() {
+            const data = await fetchData();
+            displayData(data.categories);
+            displayPagination();
+        }
+
+
+        async function addCategory(categoryId) {
+            try {
+                const response = await fetch(`${BASE_URL}/category/category.addCategory`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ categoryId })
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    return;
+                } else {
+                    const messages = JSON.parse(data.error.message)
+                    throw new Error(messages[0].message);
+
+                }
+            } catch (error) {
+                alert(`${error}`);
+            }
+        }
+
+        async function deleteCategory(categoryId) {
+            try {
+                const response = await fetch(`${BASE_URL}/category/category.removeUserCategory`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ categoryId })
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    return;
+                } else {
+                    const messages = JSON.parse(data.error.message)
+                    throw new Error(messages[0].message);
+                }
+            } catch (error) {
+                alert(`${error}`);
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem("token");
+            document.location.href = 'login.html';
+        }
+    </script>
+</body>
+
+</html>

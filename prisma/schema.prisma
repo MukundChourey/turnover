@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgres://default:acv2IOu9dswK@ep-quiet-field-a4a5jwpf.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require"
+}
+
+model user {
+  id                     String                   @id @default(cuid())
+  name                   String
+  email                  String                   @unique
+  verified               Boolean
+  verification_code      String
+  isAdmin                Boolean                  @default(false)
+  password               String
+  createdAt              DateTime                 @default(now())
+  updatedAt              DateTime                 @updatedAt
+  category_user_relation category_user_relation[]
+}
+
+model category {
+  id                     String                   @id @default(cuid())
+  name                   String                   @unique
+  createdAt              DateTime                 @default(now())
+  updatedAt              DateTime                 @updatedAt
+  category_user_relation category_user_relation[]
+}
+
+model category_user_relation {
+  id          String   @id @default(cuid())
+  category_id String
+  category    category @relation(fields: [category_id], references: [id], onDelete: Cascade)
+  user_id     String
+  user        user     @relation(fields: [user_id], references: [id], onDelete: Cascade )
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
