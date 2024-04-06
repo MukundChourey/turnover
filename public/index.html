@@ -80,6 +80,9 @@
                                     showLeft = true;
                                 } else if (offset == 6) {
                                     showLeft = false;
+                                } 
+                                if (data.result.data.categories.length < 6) {
+                                    showRight = false;
                                 }
                             } else {
                                 showRight = false;
@@ -144,7 +147,7 @@
             prevButton.addEventListener('click', () => {
                 if (offset > 0) {
                     offset -= 12;
-                    console.log('updated', offset);
+                    showRight = true;
                     fetchDataAndDisplay();
                 }
             });
@@ -156,6 +159,7 @@
             nextButton.classList.add('page-link');
             nextButton.textContent = '►';
             nextButton.addEventListener('click', () => {
+                showLeft = true;
                 fetchDataAndDisplay();
             });
             if (showRight) {
