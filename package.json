@@ -7,10 +7,10 @@
     "node": "20.x"
   },
   "scripts": {
-    "build": "npx prisma generate",
+    "build": "npx tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node-dev ./src/main.ts",
-    "start": "ts-node ./src/main.ts"
+    "start": "node build/main.js"
   },
   "keywords": [],
   "author": "",
