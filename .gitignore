@@ -1,8 +1,4 @@
 node_modules
-# Keep environment variables out of version control
 .env
-
 build
 
-.DS_Store
-.vercel
