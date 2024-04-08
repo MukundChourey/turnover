@@ -24,12 +24,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/user/user.verify",
-							"protocol": "http",
+							"raw": "https://turnover-w62j.onrender.com/api/user/user.verify",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"turnover-w62j",
+								"onrender",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"user",
@@ -98,12 +99,13 @@
 							"raw": "{\n    \"name\": \"test test\",\n    \"email\": \"mukund2thefuture@gmail.com\",\n    \"password\": \"12345\"\n}\n"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/user/user.register",
-							"protocol": "http",
+							"raw": "https://turnover-w62j.onrender.com/api/user/user.register",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"turnover-w62j",
+								"onrender",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"user",
@@ -172,12 +174,13 @@
 							"raw": "{\n    \"email\": \"mukundchourey@gmail.com\",\n    \"password\": \"12345\"\n}\n"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/user/user.login",
-							"protocol": "http",
+							"raw": "https://turnover-w62j.onrender.com/api/user/user.login",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"turnover-w62j",
+								"onrender",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"user",
@@ -247,12 +250,13 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/api/category/category.fetch",
-							"protocol": "http",
+							"raw": "https://turnover-w62j.onrender.com/api/category/category.fetch",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"turnover-w62j",
+								"onrender",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"category",
@@ -321,12 +325,13 @@
 							"raw": "{\n    \"name\": \"Curtains\"\n}\n"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/category/category.create",
-							"protocol": "http",
+							"raw": "https://turnover-w62j.onrender.com/api/category/category.create",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"turnover-w62j",
+								"onrender",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"category",
@@ -395,12 +400,13 @@
 							"raw": "{\n    \"categoryId\": \"clulpa2vd0000vou7izk98a9k\"\n}\n"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/category/category.delete",
-							"protocol": "http",
+							"raw": "https://turnover-w62j.onrender.com/api/category/category.delete",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"turnover-w62j",
+								"onrender",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"category",
@@ -469,12 +475,13 @@
 							"raw": "{\n    \"names\": [\n        \"Shoes\",\n        \"Men's T-Shirts\",\n        \"Women's T-Shirts\",\n        \"Makeup\",\n        \"Jewelry\",\n        \"Furniture\",\n        \"Electronics\",\n        \"Home Decor\",\n        \"Watches\",\n        \"Handbags\",\n        \"Accessories\",\n        \"Kids Clothing\",\n        \"Sports Equipment\",\n        \"Books\",\n        \"Health & Beauty\",\n        \"Gadgets & Gizmos\",\n        \"Kitchen Appliances\",\n        \"Pet Supplies\",\n        \"Travel Accessories\",\n        \"Art & Crafts\",\n        \"Stationery\",\n        \"Fitness Equipment\",\n        \"Gaming\",\n        \"Office Supplies\",\n        \"Party Supplies\",\n        \"Musical Instruments\",\n        \"Bags & Luggage\",\n        \"Outdoor Gear\",\n        \"Cookware\",\n        \"Smart Home Devices\",\n        \"Vintage Clothing\",\n        \"Baby Gear\",\n        \"Plant & Garden\",\n        \"Candles & Scents\",\n        \"Tech Accessories\",\n        \"DIY & Tools\",\n        \"Food & Snacks\",\n        \"Board Games\",\n        \"Photography\",\n        \"Camping Gear\",\n        \"Home Improvement\",\n        \"Swimwear\",\n        \"Collectibles\",\n        \"Luxury Goods\",\n        \"Educational Toys\",\n        \"Cosplay Costumes\",\n        \"Subscription Boxes\",\n        \"Ethnic Clothing\",\n        \"Sustainable Products\",\n        \"Art Supplies\",\n        \"Automotive Parts\",\n        \"Smartphone Cases\",\n        \"Fitness Wearables\",\n        \"Cooking Utensils\",\n        \"Skincare\",\n        \"Virtual Reality Gear\",\n        \"Antiques\",\n        \"Home Textiles\",\n        \"Travel Bags\",\n        \"Tech Gadgets\",\n        \"Laptop Accessories\",\n        \"Vintage Decor\",\n        \"Audio Equipment\",\n        \"Sunglasses\",\n        \"Gourmet Food\",\n        \"Home Lighting\",\n        \"Party Decorations\",\n        \"Educational Books\",\n        \"Climbing Gear\",\n        \"Gardening Tools\",\n        \"Home Security Systems\",\n        \"Maternity Clothing\",\n        \"Dietary Supplements\",\n        \"Painting Supplies\",\n        \"Car Accessories\",\n        \"Smartwatches\",\n        \"Fitness Supplements\",\n        \"Skincare Tools\",\n        \"Virtual Reality Games\",\n        \"Vinyl Records\",\n        \"Classic Cars\",\n        \"Pet Grooming Supplies\",\n        \"Laptops\",\n        \"Desktop Computers\",\n        \"Computer Components\",\n        \"Monitors\",\n        \"Keyboards\",\n        \"Mice & Trackpads\",\n        \"Printers & Scanners\",\n        \"Networking Equipment\",\n        \"External Hard Drives\",\n        \"USB Flash Drives\",\n        \"Webcams\",\n        \"Graphics Cards\",\n        \"RAM (Memory)\",\n        \"Motherboards\",\n        \"CPU Processors\",\n        \"Solid State Drives (SSDs)\",\n        \"Power Supplies\",\n        \"Software & Operating Systems\"\n    ]\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/category/category.createMany",
-							"protocol": "http",
+							"raw": "https://turnover-w62j.onrender.com/api/category/category.createMany",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"turnover-w62j",
+								"onrender",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"category",
@@ -543,12 +550,13 @@
 							"raw": "{\n    \"categoryId\": \"clumtjnts002uvoafl0576ejd\"\n}\n"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/category/category.addCategory",
-							"protocol": "http",
+							"raw": "https://turnover-w62j.onrender.com/api/category/category.addCategory",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"turnover-w62j",
+								"onrender",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"category",
@@ -613,12 +621,13 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/api/category/category.getUserCategories?input=%7B%220%22%3A%7B%22json%22%3A%7B%22offset%22%3A6%7D%7D%7D",
-							"protocol": "http",
+							"raw": "https://turnover-w62j.onrender.com/api/category/category.getUserCategories?input=%7B%220%22%3A%7B%22json%22%3A%7B%22offset%22%3A6%7D%7D%7D",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"turnover-w62j",
+								"onrender",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"category",
@@ -693,12 +702,13 @@
 							"raw": "{\n    \"categoryId\": \"clulpcps40001vou7vfyqbh1r\"\n}\n"
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/category/category.removeUserCategory",
-							"protocol": "http",
+							"raw": "https://turnover-w62j.onrender.com/api/category/category.removeUserCategory",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"turnover-w62j",
+								"onrender",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"category",
